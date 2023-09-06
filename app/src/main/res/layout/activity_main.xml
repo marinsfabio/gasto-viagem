@@ -55,7 +55,6 @@
         android:layout_marginTop="2dp"/>
 
     <TextView
-        android:id="@+id/text_total_value"
         android:layout_width="match_parent"
         android:gravity="center"
         android:layout_marginTop="42dp"
@@ -65,6 +64,7 @@
         android:textSize="18sp"/>
 
     <TextView
+        android:id="@+id/text_total_value"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -76,7 +76,6 @@
         />
 
     <Button
-        android:onClick=""
         android:id="@+id/button_calculate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
