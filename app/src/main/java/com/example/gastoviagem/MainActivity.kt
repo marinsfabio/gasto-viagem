@@ -24,17 +24,24 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
         }
     }
 
+    private fun  isValue():Boolean {
+        return (binding.editDistance.text.toString() != ""
+                && binding.editPrice.text.toString() != ""
+                && binding.editAutonomy.text.toString() != ""
+                && binding.editAutonomy.text.toString().toFloat() != 0f )
+    }
+
     private fun calculate() {
+        if(isValue()) {
+            val distance = binding.editDistance.text.toString().toFloat()
+            val price = binding.editPrice.text.toString().toFloat()
+            val autonomy = binding.editAutonomy.text.toString().toFloat()
 
-        val distance = binding.editDistance.text.toString().toFloat()
-        val price = binding.editPrice.text.toString().toFloat()
-        val autonomy = binding.editAutonomy.text.toString().toFloat()
+            val totalValue = (distance * price) / autonomy
 
-        val totalValue = (distance * price) / autonomy
-       // val totalValueStr = "R$ ${"%.2f".format(totalValue)}"
-
-        binding.textTotalValue.text = "R$ ${"%.2f".format(totalValue)}"
-
-        //Toast.makeText(this, totalValueStr, Toast.LENGTH_SHORT).show()
+            binding.textTotalValue.text = "R$ ${"%.2f".format(totalValue)}"
+        } else {
+            Toast.makeText(this, R.string.validation_fill_all_filds, Toast.LENGTH_SHORT).show()
+        }
     }
 }
